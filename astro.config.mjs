@@ -38,6 +38,8 @@ export default defineConfig({
     trailingSlash: "always",
     output: "static",
     redirects: {
+            // Temporarily disable sponsors page by redirecting
+            ...(siteConfig.disableSponsors ? { "/sponsors": "/" } : {}),
       "/donate": "/sponsors",
       "/ak": "https://akile.io/register?aff_code=503fe5ea-e7c5-4d68-ae05-6de99513680e",
       "/kook": "https://kook.vip/K29zpT",

@@ -44,6 +44,8 @@ export const siteConfig: SiteConfig = {
 		attachment: "fixed", // Background attachment: 'fixed', 'scroll', 'local'
 		opacity: 0.5, // Background opacity (0-1)
 	},
+	// Temporarily disable sponsors page and nav link
+	disableSponsors: true,
 	toc: {
 		enable: true, // Display the table of contents on the right side of the post
 		depth: 2, // Maximum heading depth to show in the table, from 1 to 3
@@ -71,11 +73,15 @@ export const navBarConfig: NavBarConfig = {
 			url: "/friends/", // Internal links should not include the base path, as it is automatically added
 			external: false, // Show an external link icon and will open in a new tab
 		},
-		{
-			name: "赞助",
-			url: "/sponsors/", // Internal links should not include the base path, as it is automatically added
-			external: false, // Show an external link icon and will open in a new tab
-		},
+		...(siteConfig.disableSponsors
+			? []
+			: [
+				{
+					name: "赞助",
+					url: "/sponsors/", // Internal links should not include the base path, as it is automatically added
+					external: false, // Show an external link icon and will open in a new tab
+				},
+			]),
 		{
 			name: "统计",
 			url: "https://umami.acofork.com/share/CdkXbGgZr6ECKOyK", // Internal links should not include the base path, as it is automatically added

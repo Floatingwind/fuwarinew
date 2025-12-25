@@ -39,6 +39,8 @@ export type SiteConfig = {
 
 	favicon: Favicon[];
 	officialSites?: (string | { url: string; alias: string })[];
+	/** Temporarily disable sponsors page and nav link */
+	disableSponsors?: boolean;
 };
 
 export type Favicon = {
